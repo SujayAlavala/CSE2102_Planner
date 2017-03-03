@@ -22,7 +22,7 @@ public class PlannerMain {
 
 	private JFrame frmPlanner;
 	private String info;
-	private AddNewCourse anc;
+	
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
