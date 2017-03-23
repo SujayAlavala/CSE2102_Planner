@@ -272,17 +272,13 @@ public class deadline extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				//textField_12.setText("BUTTON CLICKED");
 				JCheckBox checkBox_4;
-				
 				checkBox_4 = new JCheckBox("");
 				GridBagConstraints gbc_checkBox_4 = new GridBagConstraints();
 				gbc_checkBox_4.insets = new Insets(0, 0, 5, 5);
 				gbc_checkBox_4.gridx = 0;
 				gbc_checkBox_4.gridy = 6;
 				contentPane.add(checkBox_4, gbc_checkBox_4);
-			
-				
-				
-				
+
 			}
 		});
 		GridBagConstraints gbc_btnAddDeadline = new GridBagConstraints();
@@ -290,5 +286,4 @@ public class deadline extends JFrame {
 		gbc_btnAddDeadline.gridy = 9;
 		contentPane.add(btnAddDeadline, gbc_btnAddDeadline);
 	}
-
 }
