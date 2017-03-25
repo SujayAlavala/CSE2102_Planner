@@ -14,10 +14,11 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import java.awt.Font;
 
-
+//this is a test to see if thara can see this commit 
 
 public class Assignments {
 
@@ -158,6 +159,10 @@ public class Assignments {
 		JButton btnMain = new JButton("Main");
 		btnMain.setBounds(452, 306, 89, 23);
 		frmPlanner.getContentPane().add(btnMain);
+		
+		JSpinner spinner = new JSpinner();
+		spinner.setBounds(292, 166, 29, 20);
+		frmPlanner.getContentPane().add(spinner);
 
 
 	}
