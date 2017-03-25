@@ -151,29 +151,13 @@ public class Assignments {
 		frmPlanner.getContentPane().add(lbldateDue);
 		
 		
-
-
-
-
-
-		/*JButton btnTest = new JButton("Test");
-		btnTest.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) 
-			{
-				for (int i = 140; i< 200; i = i + 20)
-				{
-					JLabel lblNewLabel_1 = new JLabel("Hi");
-					lblNewLabel_1.setBounds(320, i, 22, 14);
-					frmPlanner.getContentPane().add(lblNewLabel_1);
-					frmPlanner.repaint();						
-
-				}
-			}
-		});
-		btnTest.setBounds(59, 53, 89, 23);
-		frmPlanner.getContentPane().add(btnTest);*/
-
+		JButton btnDeadlines = new JButton("Deadlines");
+		btnDeadlines.setBounds(551, 306, 89, 23);
+		frmPlanner.getContentPane().add(btnDeadlines);
+		
+		JButton btnMain = new JButton("Main");
+		btnMain.setBounds(452, 306, 89, 23);
+		frmPlanner.getContentPane().add(btnMain);
 
 
 	}
