@@ -4,7 +4,6 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 
 import java.awt.event.MouseAdapter;
@@ -14,13 +13,12 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import java.awt.Font;
 
-//this is a test to see if thara can see this commit 
 
-public class Assignments {
+
+public class PlannerMainJFrame {
 
 	private JFrame frmPlanner;
 	private String info;
@@ -30,6 +28,9 @@ public class Assignments {
 	private JTextField textField_2;
 	public int vertTicker = 25;
 	private JTextField textField_3;
+	
+	private AssignmentsJFrame assign;
+	
 	public String getInfo()
 	{
 		return info;
@@ -49,7 +50,7 @@ public class Assignments {
 			public void run() 
 			{
 				try {
-					Assignments window = new Assignments();
+					PlannerMainJFrame window = new PlannerMainJFrame();
 					window.frmPlanner.setVisible(true);
 					window.frmPlanner.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -62,7 +63,7 @@ public class Assignments {
 	/**
 	 * Create the application.
 	 */
-	public Assignments() 
+	public PlannerMainJFrame() 
 	{
 		initialize();
 	}
@@ -73,11 +74,11 @@ public class Assignments {
 	private void initialize() {
 		frmPlanner = new JFrame();
 		frmPlanner.setTitle("Planner");
-		frmPlanner.setBounds(100, 100, 666, 379);
+		frmPlanner.setBounds(100, 100, 500, 300);
 		frmPlanner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JButton btnNewButton = new JButton("New Assignment");
-		btnNewButton.setBounds(500, 9, 140, 23);
+		JButton btnNewButton = new JButton("Add New Course");
+		btnNewButton.setBounds(10, 227, 129, 23);
 		btnNewButton.addMouseListener(new MouseAdapter() 
 		{
 			@Override
@@ -85,25 +86,25 @@ public class Assignments {
 			{
 				//anc.newScreen();
 				JTextField className = new JTextField();
-				JTextField description = new JTextField();
-				JTextField dateDue = new JTextField();
+				JTextField teacherName = new JTextField();
+				JTextField email = new JTextField();
 
 				JTextField poop = new JTextField();
 				final JComponent[] inputs = new JComponent[] {
 						new JLabel("Class Name: "),
 						className,
-						new JLabel("Description: "),
-						description,
-						new JLabel("Date Due: "),
-						dateDue
+						new JLabel("Teacher: "),
+						teacherName,
+						new JLabel("Email: "),
+						email
 				};
-				int result = JOptionPane.showConfirmDialog(null, inputs, "New Assignment", JOptionPane.PLAIN_MESSAGE);
+				int result = JOptionPane.showConfirmDialog(null, inputs, "Add New Course", JOptionPane.PLAIN_MESSAGE);
 				if (result == JOptionPane.OK_OPTION) 
 				{
-					vertTicker = vertTicker + 35;
+					vertTicker = vertTicker + 20;
 
 					textField = new JTextField();
-					textField.setBounds(10, vertTicker, 89, 14);
+					textField.setBounds(50, vertTicker, 86, 20);
 					frmPlanner.getContentPane().add(textField);
 					textField.setColumns(10);
 					textField.setText(className.getText());
@@ -112,24 +113,22 @@ public class Assignments {
 
 					textField_1 = new JTextField();
 					textField_1.setColumns(10);
-					textField_1.setBounds(133, vertTicker, 250, 30);
+					textField_1.setBounds(185, vertTicker, 86, 20);
 					frmPlanner.getContentPane().add(textField_1);
-					textField_1.setText(description.getText());
+					textField_1.setText(teacherName.getText());
 					textField_1.setEditable(false);
 					textField_1.setFont(new Font("Tahoma", Font.BOLD, 8));
 
 					textField_2 = new JTextField();
 					textField_2.setColumns(10);
-					textField_2.setBounds(404, vertTicker, 70, 14);
+					textField_2.setBounds(310, vertTicker, 130, 20);
 					frmPlanner.getContentPane().add(textField_2);
-					textField_2.setText(dateDue.getText());
+					textField_2.setText(email.getText());
 					textField_2.setEditable(false);
 					textField_2.setFont(new Font("Tahoma", Font.BOLD, 8));
-					
-					JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Completed?");
-					chckbxNewCheckBox_1.setBounds(500, vertTicker, 97, 23);
-					frmPlanner.getContentPane().add(chckbxNewCheckBox_1);
+
 				} 
+
 			}
 		});
 
@@ -138,31 +137,30 @@ public class Assignments {
 
 		JLabel lblCourseName = new JLabel("Course Name");
 		lblCourseName.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCourseName.setBounds(10, 11, 89, 14);
+		lblCourseName.setBounds(50, 11, 89, 14);
 		frmPlanner.getContentPane().add(lblCourseName);
 
-		JLabel lbldescription = new JLabel("Description");
-		lbldescription.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lbldescription.setBounds(133, 11, 102, 14);
-		frmPlanner.getContentPane().add(lbldescription);
+		JLabel lblTeacher = new JLabel("Teacher");
+		lblTeacher.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblTeacher.setBounds(199, 11, 58, 14);
+		frmPlanner.getContentPane().add(lblTeacher);
 
-		JLabel lbldateDue = new JLabel("Date Due");
-		lbldateDue.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lbldateDue.setBounds(404, 11, 70, 14);
-		frmPlanner.getContentPane().add(lbldateDue);
-		
-		
-		JButton btnDeadlines = new JButton("Deadlines");
-		btnDeadlines.setBounds(551, 306, 89, 23);
-		frmPlanner.getContentPane().add(btnDeadlines);
-		
-		JButton btnMain = new JButton("Main");
-		btnMain.setBounds(452, 306, 89, 23);
-		frmPlanner.getContentPane().add(btnMain);
-		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(292, 166, 29, 20);
-		frmPlanner.getContentPane().add(spinner);
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblEmail.setBounds(351, 11, 37, 14);
+		frmPlanner.getContentPane().add(lblEmail);
+
+		JButton btnAssignments = new JButton("Assignments");
+		btnAssignments.addMouseListener(new MouseAdapter()
+				{
+			public void mouseClicked(MouseEvent arg0)
+			{
+				assign.main(null);
+			}
+				});
+		btnAssignments.setBounds(385,227,89,23);
+		frmPlanner.getContentPane().add(btnAssignments);
+
 
 
 	}

@@ -4,6 +4,7 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComponent;
 
 import java.awt.event.MouseAdapter;
@@ -15,14 +16,17 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Font;
+import javax.swing.JSpinner;
 
+//Problem with the buttons, it creates an new instance of the Jframe, not directly connects to the other one. So if your click it twice it
+//just makes 2 assignment Jframes, it doesn't go back and forth. 
 
-
-public class PlannerMain {
+public class AssignmentsJFrame {
 
 	private JFrame frmPlanner;
 	private String info;
-	
+	private PlannerMainJFrame sendto;
+	private DeadlineJFrame sendto2;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -47,7 +51,7 @@ public class PlannerMain {
 			public void run() 
 			{
 				try {
-					PlannerMain window = new PlannerMain();
+					AssignmentsJFrame window = new AssignmentsJFrame();
 					window.frmPlanner.setVisible(true);
 					window.frmPlanner.setLocationRelativeTo(null);
 				} catch (Exception e) {
@@ -60,7 +64,7 @@ public class PlannerMain {
 	/**
 	 * Create the application.
 	 */
-	public PlannerMain() 
+	public AssignmentsJFrame() 
 	{
 		initialize();
 	}
@@ -71,11 +75,11 @@ public class PlannerMain {
 	private void initialize() {
 		frmPlanner = new JFrame();
 		frmPlanner.setTitle("Planner");
-		frmPlanner.setBounds(100, 100, 500, 300);
+		frmPlanner.setBounds(100, 100, 666, 379);
 		frmPlanner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		JButton btnNewButton = new JButton("Add New Course");
-		btnNewButton.setBounds(10, 227, 129, 23);
+
+		JButton btnNewButton = new JButton("New Assignment");
+		btnNewButton.setBounds(500, 9, 140, 23);
 		btnNewButton.addMouseListener(new MouseAdapter() 
 		{
 			@Override
@@ -83,99 +87,99 @@ public class PlannerMain {
 			{
 				//anc.newScreen();
 				JTextField className = new JTextField();
-				JTextField teacherName = new JTextField();
-				JTextField email = new JTextField();
-				
+				JTextField description = new JTextField();
+				JTextField dateDue = new JTextField();
+
 				JTextField poop = new JTextField();
 				final JComponent[] inputs = new JComponent[] {
-				        new JLabel("Class Name: "),
-				        className,
-				        new JLabel("Teacher: "),
-				        teacherName,
-				      	new JLabel("Email: "),
-				        email
+						new JLabel("Class Name: "),
+						className,
+						new JLabel("Description: "),
+						description,
+						new JLabel("Date Due: "),
+						dateDue
 				};
-				int result = JOptionPane.showConfirmDialog(null, inputs, "Add New Course", JOptionPane.PLAIN_MESSAGE);
+				int result = JOptionPane.showConfirmDialog(null, inputs, "New Assignment", JOptionPane.PLAIN_MESSAGE);
 				if (result == JOptionPane.OK_OPTION) 
 				{
-					vertTicker = vertTicker + 20;
-					
+					vertTicker = vertTicker + 35;
+
 					textField = new JTextField();
-					textField.setBounds(50, vertTicker, 86, 20);
+					textField.setBounds(10, vertTicker, 89, 14);
 					frmPlanner.getContentPane().add(textField);
 					textField.setColumns(10);
 					textField.setText(className.getText());
 					textField.setEditable(false);
 					textField.setFont(new Font("Tahoma", Font.BOLD, 8));
-					
+
 					textField_1 = new JTextField();
 					textField_1.setColumns(10);
-					textField_1.setBounds(185, vertTicker, 86, 20);
+					textField_1.setBounds(133, vertTicker, 250, 30);
 					frmPlanner.getContentPane().add(textField_1);
-					textField_1.setText(teacherName.getText());
+					textField_1.setText(description.getText());
 					textField_1.setEditable(false);
 					textField_1.setFont(new Font("Tahoma", Font.BOLD, 8));
-					
+
 					textField_2 = new JTextField();
 					textField_2.setColumns(10);
-					textField_2.setBounds(310, vertTicker, 130, 20);
+					textField_2.setBounds(404, vertTicker, 70, 14);
 					frmPlanner.getContentPane().add(textField_2);
-					textField_2.setText(email.getText());
+					textField_2.setText(dateDue.getText());
 					textField_2.setEditable(false);
 					textField_2.setFont(new Font("Tahoma", Font.BOLD, 8));
-				            
+
+					JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Completed?");
+					chckbxNewCheckBox_1.setBounds(500, vertTicker, 97, 23);
+					frmPlanner.getContentPane().add(chckbxNewCheckBox_1);
+					frmPlanner.repaint();
 				} 
-				
-				/*if(nw.getIsClosed())
-				{
-					JLabel lblNewLabel = new JLabel(nw.getInfo());
-					lblNewLabel.setBounds(284, 183, 158, 30);
-					frmPlanner.getContentPane().add(lblNewLabel);
-				}*/
 			}
 		});
-		
+
 		frmPlanner.getContentPane().setLayout(null);
 		frmPlanner.getContentPane().add(btnNewButton);
-		
+
 		JLabel lblCourseName = new JLabel("Course Name");
 		lblCourseName.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblCourseName.setBounds(50, 11, 89, 14);
+		lblCourseName.setBounds(10, 11, 89, 14);
 		frmPlanner.getContentPane().add(lblCourseName);
-		
-		JLabel lblTeacher = new JLabel("Teacher");
-		lblTeacher.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblTeacher.setBounds(199, 11, 58, 14);
-		frmPlanner.getContentPane().add(lblTeacher);
-		
-		JLabel lblEmail = new JLabel("Email");
-		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblEmail.setBounds(351, 11, 37, 14);
-		frmPlanner.getContentPane().add(lblEmail);
-		
-			
-		
-		
-		
-		/*JButton btnTest = new JButton("Test");
-		btnTest.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) 
+
+		JLabel lbldescription = new JLabel("Description");
+		lbldescription.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lbldescription.setBounds(133, 11, 102, 14);
+		frmPlanner.getContentPane().add(lbldescription);
+
+		JLabel lbldateDue = new JLabel("Date Due");
+		lbldateDue.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lbldateDue.setBounds(404, 11, 70, 14);
+		frmPlanner.getContentPane().add(lbldateDue);
+
+		JButton btnDeadlines = new JButton("Deadlines");
+		btnDeadlines.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent arg0)
 			{
-				for (int i = 140; i< 200; i = i + 20)
-				{
-					JLabel lblNewLabel_1 = new JLabel("Hi");
-					lblNewLabel_1.setBounds(320, i, 22, 14);
-					frmPlanner.getContentPane().add(lblNewLabel_1);
-					frmPlanner.repaint();						
-				
-				}
+				sendto2.main(null);
 			}
 		});
-		btnTest.setBounds(59, 53, 89, 23);
-		frmPlanner.getContentPane().add(btnTest);*/
-		
-					
-		
+		btnDeadlines.setBounds(551, 306, 89, 23);
+		frmPlanner.getContentPane().add(btnDeadlines);
+
+		JButton btnMain = new JButton("Main");
+		btnMain.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent arg0)
+			{
+				sendto.main(null);
+			}
+		});
+		btnMain.setBounds(452, 306, 89, 23);
+		frmPlanner.getContentPane().add(btnMain);
+
+
+
+
+
+
 	}
 }
