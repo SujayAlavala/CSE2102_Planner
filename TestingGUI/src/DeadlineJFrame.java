@@ -16,7 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class deadline extends JFrame {
+public class DeadlineJFrame extends JFrame {
 //This is a test of the push
 	private JPanel contentPane;
 	private JTextField textField;
@@ -46,7 +46,7 @@ public class deadline extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					deadline frame = new deadline();
+					DeadlineJFrame frame = new DeadlineJFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -58,7 +58,7 @@ public class deadline extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public deadline() {
+	public DeadlineJFrame() {
 		setTitle("DEADLINES");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -68,7 +68,7 @@ public class deadline extends JFrame {
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{0, 0, 0, 0, 0};
 		gbl_contentPane.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_contentPane.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
 		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
@@ -272,17 +272,13 @@ public class deadline extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				//textField_12.setText("BUTTON CLICKED");
 				JCheckBox checkBox_4;
-				
 				checkBox_4 = new JCheckBox("");
 				GridBagConstraints gbc_checkBox_4 = new GridBagConstraints();
 				gbc_checkBox_4.insets = new Insets(0, 0, 5, 5);
 				gbc_checkBox_4.gridx = 0;
 				gbc_checkBox_4.gridy = 6;
 				contentPane.add(checkBox_4, gbc_checkBox_4);
-			
-				
-				
-				
+
 			}
 		});
 		GridBagConstraints gbc_btnAddDeadline = new GridBagConstraints();
@@ -290,5 +286,4 @@ public class deadline extends JFrame {
 		gbc_btnAddDeadline.gridy = 9;
 		contentPane.add(btnAddDeadline, gbc_btnAddDeadline);
 	}
-
 }
