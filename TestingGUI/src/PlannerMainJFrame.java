@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Font;
 
-
+//test for vishal 
 
 public class PlannerMainJFrame {
 
@@ -51,7 +51,7 @@ public class PlannerMainJFrame {
 			{
 				try {
 					PlannerMainJFrame window = new PlannerMainJFrame();
-					window.frmPlanner.setVisible(true);
+					window.frmPlanner.setVisible(true); ///Use the for setting visible 
 					window.frmPlanner.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
