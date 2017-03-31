@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Font;
 
-//test for email
+//test for thara
 
 public class PlannerMainJFrame {
 
