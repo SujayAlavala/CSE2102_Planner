@@ -9,7 +9,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class CardLayoutTutorial 
 {
-	JFrame frame = new JFrame("CardLayout demo");
+	JFrame frmStudentPlanner = new JFrame("CardLayout demo");
 	JPanel panelCont = new JPanel();
 	JPanel panelFirst = new JPanel();
 	JPanel panelSecond = new JPanel();
@@ -43,8 +43,8 @@ public class CardLayoutTutorial
 			{
 				cl.show(panelCont, "2");
 				cl.show(panelCont, "2");
-				frame.setSize(650, 400);
-				frame.setLocationRelativeTo(null);
+				frmStudentPlanner.setSize(650, 400);
+				frmStudentPlanner.setLocationRelativeTo(null);
 				
 			}
 		});
@@ -53,8 +53,8 @@ public class CardLayoutTutorial
 			public void mouseClicked(MouseEvent e) 
 			{
 				cl.show(panelCont, "3");
-				frame.setSize(665, 435);
-				frame.setLocationRelativeTo(null);
+				frmStudentPlanner.setSize(665, 435);
+				frmStudentPlanner.setLocationRelativeTo(null);
 			}
 		});
 		btnAddNewCourse.addMouseListener(new MouseAdapter() {
@@ -116,8 +116,8 @@ public class CardLayoutTutorial
 			public void mouseClicked(MouseEvent arg0) 
 			{
 				cl.show(panelCont, "2");
-				frame.setSize(650, 400);
-				frame.setLocationRelativeTo(null);
+				frmStudentPlanner.setSize(650, 400);
+				frmStudentPlanner.setLocationRelativeTo(null);
 				
 			}
 		});
@@ -126,8 +126,8 @@ public class CardLayoutTutorial
 			public void mouseClicked(MouseEvent e) 
 			{
 				cl.show(panelCont, "1");
-				frame.setSize(500, 331);
-				frame.setLocationRelativeTo(null);
+				frmStudentPlanner.setSize(500, 331);
+				frmStudentPlanner.setLocationRelativeTo(null);
 			}
 		});
 		
@@ -149,8 +149,8 @@ public class CardLayoutTutorial
 			public void mouseClicked(MouseEvent e) 
 			{
 				cl.show(panelCont, "1");
-				frame.setSize(500, 331);
-				frame.setLocationRelativeTo(null);
+				frmStudentPlanner.setSize(500, 331);
+				frmStudentPlanner.setLocationRelativeTo(null);
 			}
 		});
 		gl_panelThird.setVerticalGroup(
@@ -288,12 +288,13 @@ public class CardLayoutTutorial
 		cl.show(panelCont, "1");
 		
 				
-		frame.getContentPane().add(panelCont);
+		frmStudentPlanner.getContentPane().add(panelCont);
+		frmStudentPlanner.setTitle("Student Planner");
 			
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.setSize(500, 331);
-		frame.setLocationRelativeTo(null);	
-		frame.setVisible(true);
+		frmStudentPlanner.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frmStudentPlanner.setSize(500, 331);
+		frmStudentPlanner.setLocationRelativeTo(null);	
+		frmStudentPlanner.setVisible(true);
 		
 		
 	}
