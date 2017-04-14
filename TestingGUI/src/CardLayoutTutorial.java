@@ -103,6 +103,8 @@ public class CardLayoutTutorial
 					textField_2.setText(email.getText());
 					textField_2.setEditable(false);
 					textField_2.setFont(new Font("Tahoma", Font.BOLD, 8));
+					
+					//hashmap variable = className.getText()
 
 				} 
 
